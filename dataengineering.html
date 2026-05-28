@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Azure Data Engineering</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      overflow:hidden;
+      background: linear-gradient(to right, #0078d4, #00b4ff);
+    }
+
+    /* First Page */
+    .home-page{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      color:white;
+      text-align:center;
+    }
+
+    .home-page h1{
+      font-size:55px;
+      margin-bottom:20px;
+      animation: fadeIn 2s ease;
+    }
+
+    .home-page p{
+      font-size:22px;
+      opacity:0.9;
+    }
+
+    /* Popup */
+    .popup{
+      position:fixed;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      width:320px;
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+      display:none;
+      z-index:1000;
+    }
+
+    .popup h2{
+      color:#0078d4;
+      margin-bottom:15px;
+    }
+
+    .popup button{
+      margin-top:20px;
+      padding:12px 25px;
+      border:none;
+      background:#0078d4;
+      color:white;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .popup button:hover{
+      background:#005fa3;
+    }
+
+    /* Curriculum Page */
+    .curriculum-page{
+      display:none;
+      height:100vh;
+      overflow:auto;
+      background:#f4f7fb;
+      padding:40px;
+    }
+
+    .curriculum-page h1{
+      text-align:center;
+      color:#0078d4;
+      margin-bottom:30px;
+    }
+
+    .module{
+      background:white;
+      padding:20px;
+      margin-bottom:20px;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .module h2{
+      color:#333;
+      margin-bottom:10px;
+    }
+
+    .module ul{
+      padding-left:20px;
+    }
+
+    .module li{
+      margin-bottom:8px;
+      color:#555;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(-20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- First Page -->
+  <div class="home-page" id="homePage">
+    <h1>Azure Data Engineering With Us!</h1>
+    <p>Learn Azure • Spark • Data Factory • Databricks • Synapse</p>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <h2>Want to know more?</h2>
+    <p>Click below to explore the complete curriculum.</p>
+
+    <button onclick="showCurriculum()">
+      View Curriculum
+    </button>
+  </div>
+
+  <!-- Curriculum Page -->
+  <div class="curriculum-page" id="curriculumPage">
+
+    <h1>Azure Data Engineering Curriculum</h1>
+
+    <div class="module">
+      <h2>Module 1: Azure Fundamentals</h2>
+      <ul>
+        <li>Introduction to Cloud Computing</li>
+        <li>Azure Architecture</li>
+        <li>Azure Storage Services</li>
+        <li>Resource Groups & Management</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2>Module 2: Python for Data Engineering</h2>
+      <ul>
+        <li>Python Basics</li>
+        <li>Functions & OOP</li>
+        <li>File Handling</li>
+        <li>Pandas Basics</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2>Module 3: SQL & Database Concepts</h2>
+      <ul>
+        <li>Joins & Subqueries</li>
+        <li>Window Functions</li>
+        <li>Stored Procedures</li>
+        <li>Performance Optimization</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2>Module 4: Azure Data Factory</h2>
+      <ul>
+        <li>ADF Pipelines</li>
+        <li>Linked Services</li>
+        <li>Triggers & Scheduling</li>
+        <li>ETL Process</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2>Module 5: PySpark & Databricks</h2>
+      <ul>
+        <li>Spark Architecture</li>
+        <li>RDDs & DataFrames</li>
+        <li>Transformations & Actions</li>
+        <li>Databricks Notebooks</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+
+    // Show popup after 2 seconds
+    setTimeout(() => {
+      document.getElementById("popup").style.display = "block";
+    }, 2000);
+
+    // Show curriculum page
+    function showCurriculum(){
+
+      document.getElementById("homePage").style.display = "none";
+
+      document.getElementById("popup").style.display = "none";
+
+      document.getElementById("curriculumPage").style.display = "block";
+
+      document.body.style.overflow = "auto";
+    }
+
+  </script>
+
+</body>
+</html>
