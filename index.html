@@ -4,39 +4,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Good Morning ☀️</title>
+<title>Good Morning Dholuu ❤️</title>
 
 <style>
 body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#ffeaa7,#fab1a0);
+    margin:0;
+    height:100vh;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
-    height:100vh;
-    margin:0;
-    text-align:center;
+    font-family:'Arial',sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#fff2b2);
+    overflow:hidden;
 }
 
 h1{
-    color:#2d3436;
+    color:#444;
     margin-bottom:30px;
 }
 
 button{
     padding:15px 35px;
-    font-size:20px;
     border:none;
-    border-radius:30px;
-    cursor:pointer;
-    background:#ff7675;
+    border-radius:50px;
+    font-size:20px;
+    background:#ff6b81;
     color:white;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    cursor:pointer;
 }
 
-button:hover{
-    transform:scale(1.05);
+.bubble{
+    position:absolute;
+    max-width:320px;
+    padding:20px;
+    border-radius:25px;
+    background:white;
+    text-align:center;
+    font-size:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    animation:bounce 1s infinite alternate;
+}
+
+@keyframes bounce{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-20px);
+    }
+}
+
+.hidden{
+    display:none;
 }
 </style>
 </head>
@@ -45,21 +65,56 @@ button:hover{
 
 <h1>🌞 Hey Good Morning! 🌞</h1>
 
-<button onclick="startGreeting()">Hit Me ❤️</button>
+<button onclick="showMessages()">Hit Me ❤️</button>
+
+<div id="bubble1" class="bubble hidden">
+    Oyyy Dholuu ❤️ <br><br>
+    Good Morning! ☀️ <br><br>
+    It's weekend. Make sure you fully enjoy it!<br>
+    Keep smiling and keep shining! ✨
+</div>
+
+<div id="bubble2" class="bubble hidden">
+    😊 Smile Please :)
+</div>
+
+<div id="bubble3" class="bubble hidden">
+    ☀️ Now it's GooD Morning !! ❤️
+</div>
 
 <script>
-function startGreeting(){
 
-    alert("Oyyy Dholuu ❤️\n\nGood Morning!\n\nIt's weekend. Make sure you fully enjoy it!\nKeep smiling and keep shining! ✨");
-
-    setTimeout(function(){
-        alert("😊 Smile Please :)");
-    },3000);
-
-    setTimeout(function(){
-        alert("☀️ Now it's GooD Morning !! ❤️");
-    },6000);
+function centerBubble(id){
+    let bubble=document.getElementById(id);
+    bubble.style.left=(window.innerWidth-bubble.offsetWidth)/2+'px';
+    bubble.style.top=(window.innerHeight-bubble.offsetHeight)/2+'px';
 }
+
+function showMessages(){
+
+    let b1=document.getElementById('bubble1');
+    b1.classList.remove('hidden');
+    centerBubble('bubble1');
+
+    setTimeout(()=>{
+        b1.classList.add('hidden');
+
+        let b2=document.getElementById('bubble2');
+        b2.classList.remove('hidden');
+        centerBubble('bubble2');
+
+    },4000);
+
+    setTimeout(()=>{
+        document.getElementById('bubble2').classList.add('hidden');
+
+        let b3=document.getElementById('bubble3');
+        b3.classList.remove('hidden');
+        centerBubble('bubble3');
+
+    },7000);
+}
+
 </script>
 
 </body>
